@@ -8,11 +8,12 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV maven_version 3.3.9
 ENV MAVEN_HOME /opt/maven
 
+USER root
 RUN apt-get update \
           && apt-get install -y wget curl openssh-server nano 
 
 # set alias for nano 
-#RUN echo "alias nano='export TERM=xterm && nano'" >> /root/.bashrc
+RUN echo "alias nano='export TERM=xterm && nano'" >> /root/.bashrc
 
 # download maven
 ARG maven_filename="apache-maven-${maven_version}-bin.tar.gz"
@@ -33,6 +34,10 @@ ENV PATH ${MAVEN_HOME}/bin:$PATH
 # clean 
 RUN  apt-get clean \
           && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/man/?? /usr/share/man/??_*
+
+USER jenkins
+# set alias for nano 
+RUN echo "alias nano='export TERM=xterm && nano'" >> /var/jenkins_home/.bashrc
 
 RUN java --version && git --version && mvn --version && nano --version
 
