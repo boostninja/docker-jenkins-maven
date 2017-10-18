@@ -39,7 +39,5 @@ USER jenkins
 # set alias for nano 
 RUN echo "alias nano='export TERM=xterm && nano'" >> /var/jenkins_home/.bashrc
 
-RUN java --version && git --version && mvn --version && nano --version
-
-CMD ["bash"]
+CMD ["mvn", "--version" ]
  
