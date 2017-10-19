@@ -10,10 +10,12 @@ ENV MAVEN_HOME /opt/maven
 
 USER root
 RUN apt-get update \
-          && apt-get install -y wget curl openssh-server nano 
+          && apt-get install -y wget curl openssh-server nano sudo
 
 # set alias for nano 
 RUN echo "alias nano='export TERM=xterm && nano'" >> /root/.bashrc
+# add jenkins user to sudo
+RUN echo "jenkins ALL=NOPASSWD: ALL" >> /etc/sudoers
 
 # download maven
 ARG maven_filename="apache-maven-${maven_version}-bin.tar.gz"
@@ -39,5 +41,4 @@ USER jenkins
 # set alias for nano 
 RUN echo "alias nano='export TERM=xterm && nano'" >> /var/jenkins_home/.bashrc
 
-CMD ["mvn", "--version" ]
- 
+RUN mvn --version
