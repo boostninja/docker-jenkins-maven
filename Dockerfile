@@ -39,6 +39,6 @@ RUN  apt-get clean \
 
 USER jenkins
 # set alias for nano 
-RUN echo "alias nano='export TERM=xterm && nano'" >> /var/jenkins_home/.bashrc
+RUN echo "alias nano='export TERM=xterm && nano'" >> /var/jenkins_home/.bash_aliases
 
 RUN mvn --version
