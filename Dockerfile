@@ -1,4 +1,4 @@
-FROM jenkins/jenkins:lts
+FROM jenkins/jenkins
 
 MAINTAINER Kemix Koo (kemix_koo@163.com)
 

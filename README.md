@@ -1,6 +1,6 @@
 # Jenkins with Maven Image
 
-Based on [jenkins/jenkins:lts](https://hub.docker.com/r/jenkins/jenkins/)
+Based on [jenkins/jenkins](https://hub.docker.com/r/jenkins/jenkins/)
 
 # Usage
 ```
