@@ -1,4 +1,4 @@
-FROM jenkins/jenkins:lts-alpine
+FROM jenkins/jenkins:lts
 
 MAINTAINER Kemix Koo (kemix_koo@163.com)
 
